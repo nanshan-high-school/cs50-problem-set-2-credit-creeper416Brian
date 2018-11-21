@@ -1,5 +1,7 @@
 #include <iostream>
 using namespace std;
+void credit_two(int);
+void credit_one(int);
 int main() {
 
   long int number ;
@@ -12,28 +14,13 @@ int main() {
   int total = 0;
   int code;
 
-
 //乘2區
-
-  for(long int count = 1;count <= 99999999999999999;count = count * 100){
-    int sentence = i % count % 10;
-    total = total + sentence * 2 / 10 + sentence * 2 % 10 ;
-    i = number / count / 10;
-  }
-
-
+credit_two(i)
 //乘1區
-
-  for(long int count = 1;count <= 99999999999999999;count = count * 100){
-    int sentence = k % count % 10;
-    total = total + sentence / 10 + sentence % 10;
-    k = number * 10 / count / 10;
-  }
-  
+credit_one(k)
 
  total = total - number % 10;
  
-
 //判斷信用卡種類區
 
   if (number / 1000000000000000 == 4)
@@ -51,7 +38,6 @@ int main() {
   else
     cout << "你的信用卡非 Master Card 亦非 Visa Card";
 
-
   //驗證碼區
 
   if (total % 10 == 0)
@@ -66,4 +52,24 @@ int main() {
 
   else    
     cout << "\n這張信用卡不合法";
+}
+
+void credit_two(int i)
+{
+  for(long int count = 1;count <= 99999999999999999;count = count * 100)
+  {
+    int sentence = i % count % 10;
+    total = total + sentence * 2 / 10 + sentence * 2 % 10 ;
+    i = number / count / 10;
+  }
+}
+
+void credit_one(int k)
+{
+  for(long int count = 1;count <= 99999999999999999;count = count * 100)
+  {
+    int sentence = k % count % 10;
+    total = total + sentence / 10 + sentence % 10;
+    k = number * 10 / count / 10;
+  }
 }
